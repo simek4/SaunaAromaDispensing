@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h3>Stan:</h3>
+{% if hardware_state %}
+<h5>Włączony</h5>
+<form action="/stop" method="post">
+    <button type="submit">Wyłącz</button>
+</form>
+{% else %}
+<h5>Wyłączony</h5>
+<form action="/start" method="post">
+    <button type="submit">Włącz</button>
+</form>
+{% endif %}
+
+
+<br>
+<h4>Parametry:</h4>
+<p>Czas pracy: {{ config_info[0] }}</p>
+<p>Czas otwarcia zaworów: {{ config_info[1] }}</p>
+<p>Czas przerwy: {{ config_info[2] }}</p>
+<h4>Harmonogram:</h4>
+<p>Godzina startu: {{ config_info[3] }}</p>
+<p>Godzina zatrzymania: {{ config_info[4] }}</p>
+
+
+<h4>Stan zbiorników:</h4>
+{% for _, status in sensor_values.items() %}
+<p>Zbiornik {{loop.index}}:</p>
+{% if not status %}
+<p>Poziom: OK</p>
+{% else %}
+<p>Poziom: Niski</p>
+{% endif %}
+{% endfor %}
+
+
+<!-- <div class="jumbotron">
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="/contact" role="button">Contact</a>
+  </div> -->
+{% endblock %}

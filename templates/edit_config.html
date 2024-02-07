@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>Edytuj parametry:</h2>
+<br>
+<form method="POST">
+    <label for="WORK_TIME">Czas pracy pompy: (s)</label>
+    <input type="text" name="WORK_TIME" value="{{ config_info[0] }}"><br>
+
+    <label for="VALVE_OPEN_TIME">Czas otwarcia zaworów: (s)</label>
+    <input type="text" name="VALVE_OPEN_TIME" value="{{ config_info[1] }}"><br>
+
+    <label for="PAUSE_TIME">Czas przerwy: (s)</label>
+    <input type="text" name="PAUSE_TIME" value="{{ config_info[2] }}"><br>
+
+    <label for="START_TIME">Godzina startu: (HHMM)</label>
+    <input type="text" id="START_TIME" name="START_TIME" pattern="[0-9]{4}" maxlength="4" value="{{ config_info[3] }}"><br>
+
+    <label for="STOP_TIME">Godzina zatrzymania: (HHMM)</label>
+    <input type="text" id="STOP_TIME" name="STOP_TIME" pattern="[0-9]{4}" maxlength="4" value="{{ config_info[4] }}"><br>
+
+    <button type="submit">Zapisz zmiany</button>
+</form>
+{% endblock %}

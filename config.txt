@@ -1,0 +1,18 @@
+[settings]
+work_time = 5
+valve_open_time = 20
+pause_time = 4
+start_time = 0800
+stop_time = 2200
+
+[gpio_pins]
+valve1 = 5
+pump1 = 6
+pump2 = 13
+pump3 = 19
+pump4 = 26
+sensor1 = 12
+sensor2 = 16
+sensor3 = 20
+sensor4 = 21
+

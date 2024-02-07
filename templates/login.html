@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>Zaloguj się:</h2>
+<br>
+    <form method="post" action="{{ url_for('login') }}">
+        <label for="username">Nazwa użytkownika:</label>
+        <br>
+        <input type="text" name="username" required>
+        <br>
+        <label for="password">Hasło:</label>
+        <br>
+        <input type="password" name="password" required>
+        <br>
+        <br>
+        <input type="submit" value="Zaloguj">
+    </form>
+{% endblock %}
